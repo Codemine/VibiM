@@ -1,0 +1,85 @@
+Since you are on mobile, here are the direct links to every page you need to visit to set up the credentials for your project.
+
+1. Database (MongoDB Atlas)
+
+This is where you will store the donated Gemini keys and the user chat histories.
+
+Link: https://www.mongodb.com/cloud/atlas/register
+
+What to do: Create a "Shared" (Free) cluster. Once created, click "Connect" -> "Drivers" to get your MONGODB_URI.
+
+2. Google Login (Google Cloud Console)
+
+This allows users to log in with their Google accounts so you can identify them and save their history.
+
+Link: https://console.cloud.google.com/apis/credentials
+
+What to do:
+
+Create a "New Project."
+
+Click "Create Credentials" -> "OAuth Client ID."
+
+Select "Web Application."
+
+Crucial: Add https://your-domain.vercel.app/auth/google/callback to the Authorized redirect URIs.
+
+3. GitHub Connection (GitHub Developer Settings)
+
+This allows users to "Connect to GitHub" and select their repositories.
+
+Link: https://github.com/settings/developers
+
+What to do:
+
+Click "OAuth Apps" -> "New OAuth App."
+
+Homepage URL: https://your-domain.vercel.app.
+
+Authorization callback URL: https://your-domain.vercel.app/auth/github/callback.
+
+Copy the Client ID and click "Generate a new client secret."
+
+4. Your First Gemini Key (Google AI Studio)
+
+This is the MASTER_KEY so your website works even before anyone else donates a key.
+
+Link: https://aistudio.google.com/app/apikey
+
+What to do: Click "Create API key" and copy the string starting with AIza.
+
+5. Deployment & Secret Storage (Vercel)
+
+This is where you host your website for free and safely input your .env variables so they are never exposed on GitHub.
+
+Link: https://vercel.com/new
+
+What to do:
+
+Import your GitHub repository.
+
+Before clicking "Deploy," open the Environment Variables section.
+
+Add your MONGODB_URI, GOOGLE_CLIENT_ID, GITHUB_CLIENT_ID, etc., here.
+
+6. Managing the Code (GitHub Web UI)
+
+Use this to create your files and the .gitignore so your secrets don't leak.
+
+Link: https://github.com/YOUR_USERNAME/VibiM (Replace with your username).
+
+What to do: Click "Add file" -> "Create new file" to add the server.js, public/index.html, etc.
+
+Quick Checklist for your mobile browser tabs:
+
+Tab 1: MongoDB (Copy connection string).
+
+Tab 2: Google Cloud (Copy ID and Secret).
+
+Tab 3: GitHub Settings (Copy ID and Secret).
+
+Tab 4: Google AI Studio (Copy Gemini Key).
+
+Tab 5: Vercel (Paste all of the above into the Settings).
+
+Pro Tip: Use the Notes app on your phone to collect all these keys in one place before you start pasting them into Vercel. Once you're done, delete that note!
