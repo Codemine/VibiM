@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibiM - Cursor Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0B0B0B] text-[#CCCCCC] font-['Inter']">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar: Chat History -->
+        <aside class="w-64 bg-[#0F0F0F] border-r border-[#1F1F1F] flex flex-col">
+            <div class="p-4 border-b border-[#1F1F1F]">
+                <button id="new-chat" class="w-full bg-[#1A1A1A] hover:bg-[#252525] border border-[#333] py-2 rounded text-xs transition">New Chat</button>
+            </div>
+            <div id="history-list" class="flex-1 overflow-y-auto p-2 space-y-1">
+                <!-- Chats will appear here -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col relative">
+            <header class="p-4 flex justify-between items-center border-b border-[#1F1F1F]">
+                <!-- Model Selector (Cursor Style) -->
+                <div class="relative inline-block text-left" id="model-selector">
+                    <button class="bg-[#1A1A1A] border border-[#333] px-3 py-1.5 rounded-md flex items-center gap-2 text-xs hover:border-[#444]">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                        Gemini 1.5 Flash <span class="text-[10px] text-zinc-500 uppercase font-bold ml-1">Free</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button id="google-login" class="text-xs bg-white text-black px-3 py-1.5 rounded font-semibold hover:bg-zinc-200">Login with Google</button>
+                </div>
+            </header>
+
+            <!-- Chat Area -->
+            <div id="chat-container" class="flex-1 overflow-y-auto p-8 space-y-6 max-w-4xl mx-auto w-full">
+                <!-- Messages populate here -->
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-6 max-w-4xl mx-auto w-full">
+                <div class="bg-[#141414] border border-[#222] rounded-xl p-3 shadow-2xl focus-within:border-[#3b82f6] transition">
+                    <textarea id="user-input" placeholder="Ask Gemini anything..." class="w-full bg-transparent border-none outline-none resize-none text-sm min-h-[40px]"></textarea>
+                    
+                    <div class="flex justify-between items-center mt-2 pt-2 border-t border-[#222]">
+                        <div class="flex gap-2">
+                            <button id="connect-github" class="text-[11px] bg-[#24292e] text-white px-2 py-1 rounded border border-[#444] hover:bg-black">Connect GitHub</button>
+                            <select id="repo-selector" class="hidden text-[11px] bg-black border border-[#333] rounded px-2"></select>
+                            <button id="donate-btn" class="text-[11px] text-zinc-500 hover:text-emerald-400">Donate Key</button>
+                        </div>
+                        <button id="send-btn" class="bg-[#3b82f6] text-white p-1.5 rounded-md hover:bg-blue-600">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Donation Modal (Hidden by default) -->
+                <div id="donation-panel" class="hidden mt-4 p-4 bg-[#141414] border border-[#222] rounded-xl animate-in fade-in zoom-in-95">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase block mb-1">Support the Pool</label>
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-[11px] text-blue-400 hover:underline mb-2 block">Obtain Gemini API key here</a>
+                    <div class="flex gap-2">
+                        <input type="password" id="gemini-key-input" placeholder="Paste your Gemini API key" class="flex-1 bg-black border border-[#333] rounded p-2 text-xs">
+                        <button id="submit-key" class="bg-emerald-600 text-white px-3 py-1 rounded text-xs font-bold">Donate</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+                      </html>
