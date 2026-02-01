@@ -1,0 +1,12 @@
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+body { cursor: default; }
+textarea { scrollbar-width: none; }
+
+.message-user { background: #1A1A1A; border: 1px solid #333; padding: 12px 16px; border-radius: 12px; align-self: flex-end; max-width: 80%; }
+.message-ai { padding: 12px 0; max-width: 100%; font-size: 14px; line-height: 1.6; }
+
+@keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+.typing-cursor::after { content: '|'; animation: blink 1s infinite; margin-left: 2px; }
