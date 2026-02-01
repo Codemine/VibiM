@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VibiM - Vibe Coder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <button id="settings-btn">⚙️</button>
+            <h1>VibiM</h1>
+            <button id="new-idea-btn">✨ New Idea</button>
+        </header>
+
+        <!-- Preview Section -->
+        <section id="preview-container">
+            <iframe id="live-preview" src="https://timeswantstocode.github.io/VibiM/"></iframe>
+        </section>
+
+        <!-- Vibe Section -->
+        <section id="vibe-interface">
+            <div id="diff-summary" class="hidden">
+                <h3>Change Summary</h3>
+                <p id="summary-text"></p>
+                <div id="diff-visual"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="mic-btn">🎙️ Start Vibe</button>
+                <button id="ship-it-btn" class="hidden">🚀 SHIP IT</button>
+            </div>
+            <div id="status">Ready...</div>
+        </section>
+
+        <!-- Secret Settings Modal -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Secrets</h2>
+                <input type="password" id="github-pat" placeholder="GitHub PAT">
+                <input type="password" id="gemini-key" placeholder="Gemini API Key">
+                <button id="save-secrets">Save to LocalStorage</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
