@@ -1,0 +1,17 @@
+:root { --bg: #0f172a; --accent: #38bdf8; --glass: rgba(255, 255, 255, 0.05); }
+body, html { margin: 0; padding: 0; background: var(--bg); color: white; font-family: sans-serif; overflow: hidden; height: 100vh; }
+#app { display: flex; flex-direction: column; height: 100vh; }
+header { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass); }
+#preview-container { flex: 1; position: relative; }
+iframe { width: 100%; height: 100%; border: none; background: white; }
+#vibe-interface { padding: 20px; background: var(--glass); backdrop-filter: blur(10px); border-radius: 20px 20px 0 0; position: fixed; bottom: 0; width: 100%; box-sizing: border-box; transition: height 0.3s; }
+.controls { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
+button { padding: 15px 25px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; }
+#mic-btn { background: var(--accent); color: var(--bg); font-size: 1.2rem; }
+#ship-it-btn { background: #22c55e; color: white; animation: pulse 2s infinite; }
+.hidden { display: none !important; }
+#status { text-align: center; font-size: 0.8rem; margin-top: 10px; opacity: 0.6; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-content { background: #1e293b; padding: 30px; border-radius: 20px; display: flex; flex-direction: column; gap: 15px; width: 80%; }
+input { padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
