@@ -83,3 +83,72 @@ Tab 4: Google AI Studio (Copy Gemini Key).
 Tab 5: Vercel (Paste all of the above into the Settings).
 
 Pro Tip: Use the Notes app on your phone to collect all these keys in one place before you start pasting them into Vercel. Once you're done, delete that note!
+
+
+This is the final Project State Summary for VibiM. Copy and paste this into any new AI chat to resume exactly where we left off.
+
+Project: VibiM (Cursor Agent Clone)
+
+Objective: A functional clone of the Cursor.com/agents model selection and chat interface, using a secure, rotating pool of donated Gemini 1.5 Flash API keys.
+
+1. UI & Aesthetics
+
+Design: Exact clone of Cursor’s dark theme (bg-[#0B0B0B]).
+
+Model Selector: Custom dropdown fixed to "Gemini 1.5 Flash (Free)".
+
+Integrations:
+
+"Login with Google" button (identifies user for history).
+
+"Connect to GitHub" button (reveals repository selector dropdown).
+
+"Donate Gemini Key" button (opens a panel with a link to Google AI Studio and a secure input field).
+
+2. Technical Architecture
+
+Frontend: HTML5, Tailwind CSS, Vanilla JS (public/script.js).
+
+Backend: Node.js + Express (server.js).
+
+Database: MongoDB Atlas (stores chat history and the key pool).
+
+Authentication: Google (Passport/OAuth) for user sessions; GitHub for repo access.
+
+3. Key Rotation Logic ("The Brain")
+
+Automatic Switching: The backend pulls keys from the MongoDB pool.
+
+Failure Handling: If a key returns a 429 (Rate Limit) or is near its token limit, the server marks it exhausted in the DB and immediately retries the request with a fresh key from the pool.
+
+User Experience: Key switching is invisible to the user; the chat remains "free" as long as the pool has active keys.
+
+4. Security Status (CRITICAL)
+
+NO .env FILE: The .env file has been removed from the GitHub repository to prevent key theft.
+
+Secret Management: All secrets (MONGODB_URI, GOOGLE_CLIENT_ID, GITHUB_CLIENT_SECRET, MASTER_KEY) are stored only in the Hosting Provider's (Vercel) Environment Variables dashboard.
+
+Key Rotation: Any keys previously committed to GitHub are considered compromised and are being rotated (new keys generated).
+
+.gitignore: Configured to ignore .env to prevent accidental future leaks.
+
+5. Files in Repository
+
+server.js: API rotation, Gemini integration, and Auth logic.
+
+models.js: MongoDB Schemas for Chat (history) and Key (pool).
+
+public/index.html, style.css, script.js: The Cursor-clone frontend.
+
+.gitignore: Set to ignore .env and node_modules.
+
+6. Next Steps
+
+Deploying the clean repo to Vercel.
+
+Inputting new, rotated credentials into Vercel Environment Variables.
+
+Testing the Google Login history persistence and the automatic key switching logic.
+
+Current Task: Ready to deploy and configure environment variables on Vercel. No secrets are present in the code files.
